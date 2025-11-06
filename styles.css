@@ -508,8 +508,8 @@ body {
 
 .presale-info {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -577,6 +577,21 @@ body {
 .wenpad-logo {
     max-width: 200px;
     height: auto;
+}
+
+.dex-info {
+    text-align: center;
+    background: rgba(46, 139, 87, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--secondary-color);
+}
+
+.dex-info p {
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+    font-size: 1rem;
 }
 
 .btn-presale {
@@ -686,6 +701,71 @@ body {
 .calendar-info p {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.9);
+}
+
+/* Why Santa Paws Section */
+.why-section {
+    padding: 5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.why-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--secondary-color));
+}
+
+.why-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.why-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: 'Mountains of Christmas', cursive;
+}
+
+.why-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.why-card p {
+    color: var(--text-dark);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
 /* Tokenomics Section */
