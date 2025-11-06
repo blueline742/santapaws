@@ -128,7 +128,9 @@ function openDoor(prize) {
         <h2>Day ${prize.day}</h2>
         <h3>${prize.title}</h3>
         <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 1rem;">${prize.description}</p>
-        <p style="margin-top: 1.5rem; font-weight: 600; color: var(--primary-color);">Join our Telegram to participate!</p>
+        <p style="margin-top: 1.5rem; font-weight: 600; color: var(--primary-color);">
+            <a href="https://t.me/Santapawssolofficial" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline;">Join our Telegram to participate!</a>
+        </p>
     `;
     modal.style.display = 'block';
 }
@@ -397,5 +399,5 @@ function activateEasterEgg() {
 // Console message for developers
 console.log('%c🎅 SANTA PAWS 🐾', 'font-size: 50px; color: #FFD700; text-shadow: 2px 2px 4px #E63946;');
 console.log('%cThe Most Festive Meme Coin on Solana!', 'font-size: 20px; color: #2E8B57;');
-console.log('%cJoin us: [Your Telegram Link]', 'font-size: 16px; color: #fff;');
+console.log('%cJoin us: https://t.me/Santapawssolofficial', 'font-size: 16px; color: #fff;');
 console.log('%cTip: Try the Konami Code! ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️ B A', 'font-size: 14px; color: #FFD700;');
