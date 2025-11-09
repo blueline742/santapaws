@@ -628,6 +628,7 @@ body {
 .calendar {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+    overflow-x: hidden;
 }
 
 .calendar-subtitle {
@@ -656,6 +657,11 @@ body {
     perspective: 1000px;
     position: relative;
     min-height: 180px;
+    z-index: 1;
+}
+
+.door-container.flipped {
+    z-index: 10;
 }
 
 .door-flipper {
@@ -1378,11 +1384,12 @@ body {
 
     .advent-grid {
         grid-template-columns: repeat(4, 1fr);
-        gap: 1.2rem;
+        gap: 1rem;
+        padding: 0.5rem;
     }
 
     .door-container {
-        min-height: 150px;
+        min-height: 140px;
     }
 
     .door-number {
@@ -1452,11 +1459,18 @@ body {
 
     .advent-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: 0.8rem;
+        padding: 0.5rem;
+        max-width: 100%;
     }
 
     .door-container {
         min-height: 120px;
+    }
+
+    .door-front,
+    .door-back {
+        padding: 1rem;
     }
 
     .door-number {
