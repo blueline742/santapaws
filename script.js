@@ -49,98 +49,81 @@ const modalBody = document.getElementById('modalBody');
 const closeBtn = document.querySelector('.close');
 
 const prizes = [
-    { day: 1, icon: '🎁', title: 'Welcome Gift!', description: 'Thank you for being part of the Santa Paws community!' },
-    { day: 2, icon: '🎮', title: 'Gaming Console Giveaway', description: 'Enter for a chance to win a gaming console!' },
-    { day: 3, icon: '💰', title: '50 SOL Prize Pool', description: 'Lucky winners will share 50 SOL!' },
-    { day: 4, icon: '🎄', title: 'NFT Drop', description: 'Exclusive Santa Paws NFT collection!' },
-    { day: 5, icon: '🎅', title: 'Community AMA', description: 'Meet the team and ask anything!' },
-    { day: 6, icon: '🎊', title: 'Bonus Tokens', description: 'Early supporters get bonus tokens!' },
-    { day: 7, icon: '🚀', title: 'Presale Launch!', description: 'The presale officially begins!' },
-    { day: 8, icon: '💎', title: 'Diamond Hands Reward', description: 'Special rewards for holders!' },
-    { day: 9, icon: '🎸', title: 'Music NFT', description: 'Exclusive Santa Paws theme song NFT!' },
-    { day: 10, icon: '🏆', title: 'Trading Competition', description: 'Compete for amazing prizes!' },
-    { day: 11, icon: '🎮', title: 'VR Headset Giveaway', description: 'Win a VR headset!' },
-    { day: 12, icon: '📱', title: 'iPhone Giveaway', description: 'Latest iPhone up for grabs!' },
-    { day: 13, icon: '💻', title: 'Laptop Giveaway', description: 'High-end gaming laptop!' },
-    { day: 14, icon: '🎁', title: 'Mystery Box', description: 'Open for a surprise gift!' },
-    { day: 15, icon: '🎨', title: 'Art Contest', description: 'Show your creativity, win prizes!' },
-    { day: 16, icon: '🎵', title: 'Concert Tickets', description: 'Win tickets to your favorite artist!' },
-    { day: 17, icon: '🏠', title: 'Smart Home Device', description: 'Upgrade your home with smart tech!' },
-    { day: 18, icon: '⌚', title: 'Smartwatch Giveaway', description: 'Latest smartwatch model!' },
-    { day: 19, icon: '🎧', title: 'Premium Headphones', description: 'High-quality audio experience!' },
-    { day: 20, icon: '📷', title: 'Camera Giveaway', description: 'Professional camera for creators!' },
-    { day: 21, icon: '🎮', title: 'Gaming PC', description: 'Custom built gaming PC!' },
-    { day: 22, icon: '✈️', title: 'Travel Voucher', description: 'Plan your dream vacation!' },
-    { day: 23, icon: '🎄', title: 'Christmas Eve Special', description: 'Something special awaits!' },
-    { day: 24, icon: '🎅', title: 'Grand Prize Draw', description: 'Multiple winners, huge prizes!' },
-    { day: 25, icon: '🎁', title: 'MERRY CHRISTMAS!', description: 'The biggest surprise of all!' }
+    { day: 1, icon: '🎁', title: 'Amazon eGift Card', value: '$20', description: 'Start your Christmas journey with a $20 Amazon eGift Card! Perfect for treating yourself or getting started on your holiday shopping.' },
+    { day: 2, icon: '🎮', title: 'Gaming Wallet', value: '$25', description: 'Steam, Xbox, or PlayStation Store credit! Choose your platform and get $25 to spend on your favorite games.' },
+    { day: 3, icon: '🍕', title: 'Dominos Voucher', value: '$30', description: 'Pizza party time! Enjoy a delicious feast with a $30 Dominos voucher. Winners can choose equivalent value alternative.' },
+    { day: 4, icon: '🍔', title: 'Food Delivery Voucher', value: '$35', description: 'DoorDash, Uber Eats, or Deliveroo - your choice! Get $35 worth of your favorite food delivered right to your door.' },
+    { day: 5, icon: '🎁', title: 'Amazon eGift Card', value: '$40', description: 'Another chance to win Amazon credit! $40 to spend on anything your heart desires this holiday season.' },
+    { day: 6, icon: '☕', title: 'Coffee Shop Gift Card', value: '$45', description: 'Starbucks, Costa, or Dunkin Donuts - fuel your days with $45 worth of your favorite coffee and treats!' },
+    { day: 7, icon: '🎮', title: 'Gaming Wallet', value: '$50', description: 'Level up with $50 Steam, Xbox, or PlayStation credit! Perfect for grabbing that game you\'ve been eyeing.' },
+    { day: 8, icon: '👟', title: 'Nike / Sports Store Gift Card', value: '$55', description: 'Get sporty with a $55 Nike or sports store gift card! New kicks or gear - your choice!' },
+    { day: 9, icon: '🍔', title: 'Food Delivery Voucher', value: '$60', description: 'Uber Eats, DoorDash, or Deliveroo credit worth $60! Treat yourself to multiple meals on us.' },
+    { day: 10, icon: '🎯', title: 'GameStop / Best Buy / Target Voucher', value: '$65', description: 'Shopping spree alert! $65 to spend at GameStop, Best Buy, or Target. Games, tech, or whatever you need!' },
+    { day: 11, icon: '🎮', title: 'Game Pass / Console Store Voucher', value: '$70', description: 'Game Pass subscription or PlayStation/Xbox store credit worth $70! Endless gaming awaits.' },
+    { day: 12, icon: '🛍️', title: 'Store of Your Choice Gift Card', value: '$75', description: 'Your choice, your store! Pick any major retailer and get a $75 gift card to spend however you like.' },
+    { day: 13, icon: '🍕', title: 'Dominos Voucher', value: '$80', description: 'Another pizza party! Enjoy $80 worth of Dominos - enough to feed the whole squad!' },
+    { day: 14, icon: '📺', title: 'Streaming Subscription', value: '$85', description: 'Netflix, Disney+, or Hulu subscription worth $85! Binge-watch your favorite shows all season long.' },
+    { day: 15, icon: '🎁', title: 'Amazon eGift Card', value: '$90', description: 'Big Amazon credit alert! $90 to spend on anything from tech to toys to holiday decorations.' },
+    { day: 16, icon: '🍔', title: 'Food Delivery Voucher', value: '$95', description: 'DoorDash, Uber Eats, or Deliveroo worth $95! That\'s a lot of delicious meals coming your way.' },
+    { day: 17, icon: '🎮', title: 'Gaming Wallet', value: '$100', description: 'HUGE gaming credit! $100 for Steam, Xbox, or PlayStation Store. Time to build that game library!' },
+    { day: 18, icon: '🛍️', title: 'Target / Walmart / Best Buy Gift Card', value: '$110', description: 'Major shopping power! $110 gift card for Target, Walmart, or Best Buy. Go wild!' },
+    { day: 19, icon: '👟', title: 'Nike / Sports Store Gift Card', value: '$120', description: 'Premium sports gear incoming! $120 Nike or sports store gift card for the athlete in you.' },
+    { day: 20, icon: '🎁', title: 'Amazon eGift Card', value: '$130', description: 'Massive Amazon credit! $130 to spend on anything you can imagine. The possibilities are endless!' },
+    { day: 21, icon: '🛍️', title: 'Store of Your Choice Gift Card', value: '$150', description: 'Premium choice alert! $150 gift card to ANY major store you want. Dream big!' },
+    { day: 22, icon: '🎁', title: 'Amazon eGift Card', value: '$170', description: 'Incredible $170 Amazon eGift Card! Perfect for major purchases or stocking up on everything you need.' },
+    { day: 23, icon: '🎁', title: 'Amazon eGift Card', value: '$200', description: 'Christmas Eve mega prize! $200 Amazon eGift Card - one day before the grand finale!' },
+    { day: 24, icon: '🎮', title: 'GRAND PRIZE: Gaming Console!', value: '$550', description: 'THE BIG ONE! Nintendo Switch, PS5, or Xbox Series X - YOUR CHOICE! Worth $550! The ultimate Christmas gift!' },
+    { day: 25, icon: '🎅', title: 'MERRY CHRISTMAS!', value: 'Special', description: 'Thank you for being part of the Santa Paws family! Holders are automatically entered for all prizes. More surprises coming!' }
 ];
 
-// Generate advent calendar doors
+// Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
-    const today = new Date();
-    const currentDay = today.getDate();
-    const currentMonth = today.getMonth();
-
-    // November = 10, December = 11 in JavaScript months (0-indexed)
-    const isNovember = currentMonth === 10;
-    const isDecember = currentMonth === 11;
-
     prizes.forEach(prize => {
-        const door = document.createElement('div');
-        door.classList.add('advent-door');
+        const doorContainer = document.createElement('div');
+        doorContainer.classList.add('door-container');
 
-        // Determine if door should be unlocked
-        let isUnlocked = false;
-        if (isNovember && currentDay >= 7) {
-            // In November, unlock all doors after Nov 7
-            isUnlocked = true;
-        } else if (isDecember) {
-            // In December, unlock doors up to current day
-            isUnlocked = currentDay >= prize.day;
-        }
-
-        if (!isUnlocked) {
-            door.classList.add('locked');
-        }
-
-        door.innerHTML = `
-            <div class="door-number">${prize.day}</div>
-            <div class="door-icon">${prize.icon}</div>
+        doorContainer.innerHTML = `
+            <div class="door-flipper">
+                <div class="door-front">
+                    <div class="door-number">${prize.day}</div>
+                    <div class="door-decoration">🎄</div>
+                    <div class="door-label">Click to Reveal!</div>
+                </div>
+                <div class="door-back">
+                    <div class="prize-icon">${prize.icon}</div>
+                    <div class="prize-value">${prize.value}</div>
+                    <div class="prize-title">${prize.title}</div>
+                </div>
+            </div>
         `;
 
-        door.addEventListener('click', () => {
-            if (isUnlocked) {
-                openDoor(prize);
-                door.classList.add('opened');
-            } else {
-                showLockedMessage(prize.day);
-            }
+        doorContainer.addEventListener('click', () => {
+            doorContainer.classList.toggle('flipped');
+            setTimeout(() => {
+                if (doorContainer.classList.contains('flipped')) {
+                    openDoor(prize);
+                }
+            }, 300);
         });
 
-        adventGrid.appendChild(door);
+        adventGrid.appendChild(doorContainer);
     });
 }
 
 function openDoor(prize) {
     modalBody.innerHTML = `
         <div class="modal-icon">${prize.icon}</div>
-        <h2>Day ${prize.day}</h2>
-        <h3>${prize.title}</h3>
+        <div class="modal-day">Day ${prize.day}</div>
+        <h2 style="color: var(--primary-color); font-size: 2rem; margin: 0.5rem 0;">${prize.value}</h2>
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">${prize.title}</h3>
         <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 1rem;">${prize.description}</p>
-        <p style="margin-top: 1.5rem; font-weight: 600; color: var(--primary-color);">
-            <a href="https://t.me/Santapawssolofficial" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline;">Join our Telegram to participate!</a>
+        <p style="margin-top: 1.5rem; font-weight: 600; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 1rem; border-radius: 10px; color: white;">
+            🎁 Hold $SPAWS to be automatically entered!<br>
+            Winners can choose equivalent value alternatives!
         </p>
-    `;
-    modal.style.display = 'block';
-}
-
-function showLockedMessage(day) {
-    modalBody.innerHTML = `
-        <div class="modal-icon">🔒</div>
-        <h2>Day ${day} is Locked</h2>
-        <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 1rem;">This surprise will be revealed on December ${day}th!</p>
-        <p style="margin-top: 1.5rem; font-weight: 600;">Stay tuned and join our community!</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://t.me/Santapawssolofficial" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: underline; font-weight: 600; font-size: 1.1rem;">Join Telegram for Daily Winner Announcements!</a>
+        </p>
     `;
     modal.style.display = 'block';
 }

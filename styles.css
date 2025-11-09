@@ -623,74 +623,182 @@ body {
 
 .advent-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
     margin-bottom: 2rem;
+    perspective: 1000px;
 }
 
-.advent-door {
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    border-radius: 15px;
+/* 3D Door Container */
+.door-container {
+    aspect-ratio: 0.8;
+    cursor: pointer;
+    perspective: 1000px;
+    position: relative;
+}
+
+.door-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.door-container.flipped .door-flipper {
+    transform: rotateY(180deg);
+}
+
+.door-front,
+.door-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 3px solid var(--accent-color);
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Front of Door */
+.door-front {
+    background: linear-gradient(135deg, #E63946 0%, #A4161A 100%);
+    border: 5px solid var(--accent-color);
     position: relative;
     overflow: hidden;
 }
 
-.advent-door::before {
+.door-front::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transform: rotate(45deg);
-    transition: all 0.5s ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(90deg, transparent 48%, rgba(255, 215, 0, 0.3) 50%, transparent 52%),
+        linear-gradient(0deg, transparent 48%, rgba(255, 215, 0, 0.3) 50%, transparent 52%);
+    background-size: 30px 30px;
+    opacity: 0.3;
 }
 
-.advent-door:hover::before {
-    left: 100%;
-}
-
-.advent-door:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.door-front::after {
+    content: '🎁';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    opacity: 0.3;
 }
 
 .door-number {
     font-family: 'Mountains of Christmas', cursive;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--text-light);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
 }
 
-.door-icon {
+.door-decoration {
     font-size: 2rem;
+    margin: 0.5rem 0;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.door-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     margin-top: 0.5rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
 }
 
-.advent-door.locked {
-    opacity: 0.5;
-    cursor: not-allowed;
+/* Back of Door */
+.door-back {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #FFE55C 100%);
+    border: 5px solid var(--secondary-color);
+    transform: rotateY(180deg);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5);
 }
 
-.advent-door.opened {
-    background: linear-gradient(135deg, var(--accent-color), #FFE55C);
-    animation: shake 0.5s ease;
+.prize-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    animation: bounce-prize 2s ease-in-out infinite;
 }
 
-@keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
+@keyframes bounce-prize {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.prize-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.3rem;
+    font-family: 'Mountains of Christmas', cursive;
+}
+
+.prize-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Hover Effects */
+.door-container:hover .door-flipper {
+    transform: scale(1.05);
+}
+
+.door-container.flipped:hover .door-flipper {
+    transform: rotateY(180deg) scale(1.05);
+}
+
+.door-container:hover {
+    filter: brightness(1.1);
+}
+
+/* Sparkle Effect on Hover */
+.door-container::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    animation: sparkle-rotate 3s linear infinite;
+}
+
+.door-container:hover::before {
+    opacity: 1;
+}
+
+@keyframes sparkle-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .calendar-info {
@@ -1113,6 +1221,23 @@ body {
 #modalBody .modal-icon {
     font-size: 5rem;
     margin-bottom: 1rem;
+    animation: bounce-modal 1s ease-in-out;
+}
+
+@keyframes bounce-modal {
+    0%, 100% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-20px) scale(1.1); }
+    50% { transform: translateY(0) scale(1); }
+    75% { transform: translateY(-10px) scale(1.05); }
+}
+
+#modalBody .modal-day {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* Responsive Design */
@@ -1208,8 +1333,24 @@ body {
     }
 
     .advent-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .door-number {
+        font-size: 3rem;
+    }
+
+    .prize-icon {
+        font-size: 2.5rem;
+    }
+
+    .prize-value {
+        font-size: 1.5rem;
+    }
+
+    .prize-title {
+        font-size: 0.8rem;
     }
 
     .tokenomics-grid {
