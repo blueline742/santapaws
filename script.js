@@ -75,6 +75,14 @@ const prizes = [
 
 // Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
+    console.log('Generating calendar...', prizes.length, 'prizes');
+    console.log('adventGrid element:', adventGrid);
+
+    if (!adventGrid) {
+        console.error('adventGrid is null!');
+        return;
+    }
+
     prizes.forEach(prize => {
         const doorContainer = document.createElement('div');
         doorContainer.classList.add('door-container');
@@ -105,6 +113,8 @@ function generateAdventCalendar() {
 
         adventGrid.appendChild(doorContainer);
     });
+
+    console.log('Calendar generated! Total doors:', adventGrid.children.length);
 }
 
 function openDoor(prize) {
@@ -127,15 +137,24 @@ function openDoor(prize) {
 
 // Initialize calendar when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded!');
+
     adventGrid = document.getElementById('adventGrid');
     modal = document.getElementById('calendarModal');
     modalBody = document.getElementById('modalBody');
     closeBtn = document.querySelector('.close');
 
+    console.log('Elements found:', {
+        adventGrid: adventGrid,
+        modal: modal,
+        modalBody: modalBody,
+        closeBtn: closeBtn
+    });
+
     if (adventGrid) {
         generateAdventCalendar();
     } else {
-        console.error('Advent grid not found!');
+        console.error('Advent grid not found! ID: adventGrid');
     }
 
     if (closeBtn && modal) {
