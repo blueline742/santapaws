@@ -645,6 +645,8 @@ body {
     perspective: 1500px;
     max-width: 1200px;
     margin: 0 auto 2rem;
+    min-height: 200px;
+    padding: 1rem 0;
 }
 
 /* 3D Door Container */

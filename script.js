@@ -43,10 +43,7 @@ const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 // Advent Calendar Generation
-const adventGrid = document.getElementById('adventGrid');
-const modal = document.getElementById('calendarModal');
-const modalBody = document.getElementById('modalBody');
-const closeBtn = document.querySelector('.close');
+let adventGrid, modal, modalBody, closeBtn;
 
 const prizes = [
     { day: 1, icon: '🎁', title: 'Amazon eGift Card', value: '$20', description: 'Start your Christmas journey with a $20 Amazon eGift Card! Perfect for treating yourself or getting started on your holiday shopping.' },
@@ -128,17 +125,31 @@ function openDoor(prize) {
     modal.style.display = 'block';
 }
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
+// Initialize calendar when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    adventGrid = document.getElementById('adventGrid');
+    modal = document.getElementById('calendarModal');
+    modalBody = document.getElementById('modalBody');
+    closeBtn = document.querySelector('.close');
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
+    if (adventGrid) {
+        generateAdventCalendar();
+    } else {
+        console.error('Advent grid not found!');
+    }
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     }
 });
-
-generateAdventCalendar();
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
