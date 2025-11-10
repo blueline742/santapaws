@@ -89,7 +89,7 @@ function App() {
                         <div style={{ fontSize: window.innerWidth <= 768 ? '0.75rem' : '1rem', fontWeight: 600, color: '#1D3557', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '0.5rem' }}>
                             Day {selectedPrize.day}
                         </div>
-                        <h2 style={{ color: '#E63946', fontSize: window.innerWidth <= 768 ? '1.3rem' : '2rem', margin: '0.5rem 0', fontFamily: 'Mountains of Christmas, cursive' }}>
+                        <h2 style={{ color: '#E63946', fontSize: window.innerWidth <= 768 ? '2.5rem' : '3.5rem', margin: '0.5rem 0', fontFamily: 'Mountains of Christmas, cursive', fontWeight: 'bold' }}>
                             {selectedPrize.value}
                         </h2>
                         <h3 style={{ fontSize: window.innerWidth <= 768 ? '1rem' : '1.5rem', marginBottom: '0.5rem', color: '#1D3557' }}>
