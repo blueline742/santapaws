@@ -70,10 +70,12 @@ function App() {
                     <div
                         style={{
                             background: 'rgba(255, 255, 255, 0.95)',
-                            borderRadius: '20px',
-                            padding: '2rem',
-                            maxWidth: '500px',
+                            borderRadius: '15px',
+                            padding: window.innerWidth <= 768 ? '1rem' : '2rem',
+                            maxWidth: window.innerWidth <= 768 ? '320px' : '500px',
                             width: '100%',
+                            maxHeight: '85vh',
+                            overflowY: 'auto',
                             border: '3px solid #FFD700',
                             boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)',
                             textAlign: 'center',
@@ -81,38 +83,39 @@ function App() {
                         }}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div style={{ fontSize: '5rem', marginBottom: '1rem', animation: 'bounce-prize 2s ease-in-out infinite' }}>
+                        <div style={{ fontSize: window.innerWidth <= 768 ? '3rem' : '5rem', marginBottom: window.innerWidth <= 768 ? '0.5rem' : '1rem', animation: 'bounce-prize 2s ease-in-out infinite' }}>
                             {selectedPrize.icon}
                         </div>
-                        <div style={{ fontSize: '1rem', fontWeight: 600, color: '#1D3557', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '0.5rem' }}>
+                        <div style={{ fontSize: window.innerWidth <= 768 ? '0.75rem' : '1rem', fontWeight: 600, color: '#1D3557', opacity: 0.7, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '0.5rem' }}>
                             Day {selectedPrize.day}
                         </div>
-                        <h2 style={{ color: '#E63946', fontSize: '2rem', margin: '0.5rem 0', fontFamily: 'Mountains of Christmas, cursive' }}>
+                        <h2 style={{ color: '#E63946', fontSize: window.innerWidth <= 768 ? '1.3rem' : '2rem', margin: '0.5rem 0', fontFamily: 'Mountains of Christmas, cursive' }}>
                             {selectedPrize.value}
                         </h2>
-                        <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#1D3557' }}>
+                        <h3 style={{ fontSize: window.innerWidth <= 768 ? '1rem' : '1.5rem', marginBottom: '0.5rem', color: '#1D3557' }}>
                             {selectedPrize.title}
                         </h3>
-                        <p style={{ fontSize: '1.1rem', lineHeight: 1.6, marginTop: '1rem', color: '#1D3557' }}>
+                        <p style={{ fontSize: window.innerWidth <= 768 ? '0.85rem' : '1.1rem', lineHeight: 1.6, marginTop: '0.5rem', color: '#1D3557' }}>
                             {selectedPrize.description}
                         </p>
                         <p style={{
-                            marginTop: '1.5rem',
+                            marginTop: window.innerWidth <= 768 ? '0.75rem' : '1.5rem',
                             fontWeight: 600,
                             background: 'linear-gradient(135deg, #E63946, #2E8B57)',
-                            padding: '1rem',
+                            padding: window.innerWidth <= 768 ? '0.7rem' : '1rem',
                             borderRadius: '10px',
-                            color: 'white'
+                            color: 'white',
+                            fontSize: window.innerWidth <= 768 ? '0.75rem' : '1rem'
                         }}>
                             🎁 Hold $SPAWS to be automatically entered!<br />
                             Winners can choose equivalent value alternatives!
                         </p>
-                        <p style={{ marginTop: '1rem' }}>
+                        <p style={{ marginTop: window.innerWidth <= 768 ? '0.75rem' : '1rem' }}>
                             <a
                                 href="https://t.me/Santapawssolofficial"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style={{ color: '#E63946', textDecoration: 'underline', fontWeight: 600, fontSize: '1.1rem' }}
+                                style={{ color: '#E63946', textDecoration: 'underline', fontWeight: 600, fontSize: window.innerWidth <= 768 ? '0.85rem' : '1.1rem' }}
                             >
                                 Join Telegram for Daily Winner Announcements!
                             </a>
@@ -120,9 +123,9 @@ function App() {
                         <button
                             onClick={closeModal}
                             style={{
-                                marginTop: '1.5rem',
-                                padding: '0.8rem 2rem',
-                                fontSize: '1.1rem',
+                                marginTop: window.innerWidth <= 768 ? '1rem' : '1.5rem',
+                                padding: window.innerWidth <= 768 ? '0.6rem 1.5rem' : '0.8rem 2rem',
+                                fontSize: window.innerWidth <= 768 ? '0.9rem' : '1.1rem',
                                 fontWeight: 'bold',
                                 background: 'linear-gradient(135deg, #E63946, #8B0000)',
                                 color: 'white',
