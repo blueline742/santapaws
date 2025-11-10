@@ -74,18 +74,9 @@ const prizes = [
 ];
 
 // Check if we should use 3D calendar
-const use3DCalendar = document.getElementById('advent3d-root');
-
 // Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
     console.log('Generating calendar...', prizes.length, 'prizes');
-
-    // If 3D root exists, skip traditional calendar generation
-    if (use3DCalendar) {
-        console.log('3D Calendar will be rendered by React');
-        return;
-    }
-
     console.log('adventGrid element:', adventGrid);
 
     if (!adventGrid) {
