@@ -16,7 +16,9 @@
       "Bash(start http://localhost:5173)",
       "Bash(start http://localhost:5174)",
       "Bash(start http://localhost:5175)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(styles_temp.css)",
+      "Bash(script_temp.js)"
     ],
     "deny": [],
     "ask": []
