@@ -1622,3 +1622,248 @@ body {
         font-size: 0.65rem;
     }
 }
+
+/* ============================================
+   Image-Based Interactive Calendar Test Section
+   ============================================ */
+
+.calendar-image-test {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+    padding: 4rem 0;
+    margin: 2rem 0;
+}
+
+.calendar-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.calendar-grid-image {
+    position: relative;
+    width: 100%;
+    padding-top: 159%; /* Aspect ratio of calendar image (1300/815)*100% */
+    background-image: url('calender.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Door overlays - positioned over each gift box */
+.calendar-grid-image .door {
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(255, 215, 0, 0.2);
+    border: 2px solid rgba(255, 215, 0, 0.6);
+    border-radius: 5px;
+    transition: all 0.5s ease-out;
+}
+
+.calendar-grid-image .door:hover {
+    background-color: rgba(255, 215, 0, 0.4);
+    border-color: rgba(255, 215, 0, 1);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.calendar-grid-image .door.opened {
+    transform: scale(0.01) rotate(180deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Positioning for each door based on the calendar image */
+/* Row 1 */
+.calendar-grid-image .door[data-day="1"] {
+    top: 29.5%;
+    left: 4.8%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="2"] {
+    top: 29.5%;
+    left: 23.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="3"] {
+    top: 29.5%;
+    left: 42%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="4"] {
+    top: 29.5%;
+    left: 60.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="5"] {
+    top: 29.5%;
+    left: 79%;
+    width: 16.5%;
+    height: 12%;
+}
+
+/* Row 2 */
+.calendar-grid-image .door[data-day="6"] {
+    top: 43%;
+    left: 4.8%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="7"] {
+    top: 43%;
+    left: 23.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="8"] {
+    top: 43%;
+    left: 42%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="9"] {
+    top: 43%;
+    left: 60.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="10"] {
+    top: 43%;
+    left: 79%;
+    width: 16.5%;
+    height: 12%;
+}
+
+/* Row 3 */
+.calendar-grid-image .door[data-day="11"] {
+    top: 56.5%;
+    left: 4.8%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="12"] {
+    top: 56.5%;
+    left: 23.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="13"] {
+    top: 56.5%;
+    left: 42%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="14"] {
+    top: 56.5%;
+    left: 60.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="15"] {
+    top: 56.5%;
+    left: 79%;
+    width: 16.5%;
+    height: 12%;
+}
+
+/* Row 4 */
+.calendar-grid-image .door[data-day="16"] {
+    top: 70%;
+    left: 4.8%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="17"] {
+    top: 70%;
+    left: 23.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="18"] {
+    top: 70%;
+    left: 42%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="19"] {
+    top: 70%;
+    left: 60.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="20"] {
+    top: 70%;
+    left: 79%;
+    width: 16.5%;
+    height: 12%;
+}
+
+/* Row 5 */
+.calendar-grid-image .door[data-day="21"] {
+    top: 83.5%;
+    left: 4.8%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="22"] {
+    top: 83.5%;
+    left: 23.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="23"] {
+    top: 83.5%;
+    left: 42%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="24"] {
+    top: 83.5%;
+    left: 60.5%;
+    width: 16.5%;
+    height: 12%;
+}
+
+.calendar-grid-image .door[data-day="25"] {
+    top: 83.5%;
+    left: 79%;
+    width: 16.5%;
+    height: 12%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-wrapper {
+        padding: 10px;
+    }
+    
+    .calendar-grid-image .door {
+        border-width: 1px;
+    }
+}
