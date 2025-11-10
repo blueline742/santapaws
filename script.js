@@ -70,12 +70,22 @@ const prizes = [
     { day: 22, icon: '🎁', title: 'Amazon eGift Card', value: '$170', description: 'Incredible $170 Amazon eGift Card! Perfect for major purchases or stocking up on everything you need.' },
     { day: 23, icon: '🎁', title: 'Amazon eGift Card', value: '$200', description: 'Christmas Eve mega prize! $200 Amazon eGift Card - one day before the grand finale!' },
     { day: 24, icon: '🎮', title: 'GRAND PRIZE: Gaming Console!', value: '$550', description: 'THE BIG ONE! Nintendo Switch, PS5, or Xbox Series X - YOUR CHOICE! Worth $550! The ultimate Christmas gift!' },
-    { day: 25, icon: '🎅', title: 'MERRY CHRISTMAS!', value: 'Special', description: 'Thank you for being part of the Santa Paws family! Holders are automatically entered for all prizes. More surprises coming!' }
+    { day: 25, icon: '💰', title: '4 SOLANA', value: '4 SOL', description: 'MERRY CHRISTMAS! The ultimate crypto prize - 4 SOLANA tokens! Thank you for being part of the Santa Paws family!' }
 ];
+
+// Check if we should use 3D calendar
+const use3DCalendar = document.getElementById('advent3d-root');
 
 // Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
     console.log('Generating calendar...', prizes.length, 'prizes');
+
+    // If 3D root exists, skip traditional calendar generation
+    if (use3DCalendar) {
+        console.log('3D Calendar will be rendered by React');
+        return;
+    }
+
     console.log('adventGrid element:', adventGrid);
 
     if (!adventGrid) {
@@ -133,6 +143,7 @@ function openDoor(prize) {
     `;
     modal.style.display = 'block';
 }
+
 
 // Initialize calendar when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
