@@ -92,7 +92,6 @@ function generateAdventCalendar() {
                 <div class="door-front">
                     <div class="door-number">${prize.day}</div>
                     <div class="door-decoration">🎄</div>
-                    <div class="door-label">Click to Reveal!</div>
                 </div>
                 <div class="door-back">
                     <div class="prize-icon">${prize.icon}</div>

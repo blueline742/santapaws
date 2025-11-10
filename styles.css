@@ -332,37 +332,71 @@ body {
 
 .btn {
     padding: 1rem 2.5rem;
-    border-radius: 50px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.1rem;
     transition: all 0.3s ease;
     display: inline-block;
     border: none;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #FF6B6B);
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Christmas Red Button */
+.btn-primary.btn-christmas {
+    background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
     color: var(--text-light);
-    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+    box-shadow:
+        0 8px 25px rgba(196, 30, 58, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 215, 0, 0.3);
 }
 
-.btn-primary:hover {
+.btn-primary.btn-christmas:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.6);
+    box-shadow:
+        0 12px 35px rgba(196, 30, 58, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: var(--accent-color);
 }
 
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.2);
+/* Frost Blue/White Button */
+.btn-secondary.btn-frost {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(200, 230, 255, 0.2) 100%);
     color: var(--text-light);
-    border: 2px solid var(--accent-color);
+    border: 2px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.btn-secondary:hover {
-    background: rgba(255, 215, 0, 0.2);
+.btn-secondary.btn-frost:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(200, 230, 255, 0.3) 100%);
     transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .pulse {
@@ -612,16 +646,26 @@ body {
 
 .btn-presale {
     width: 100%;
-    background: linear-gradient(135deg, var(--secondary-color), #3CB371);
-    color: var(--text-light);
     text-align: center;
     padding: 1.2rem;
     font-size: 1.2rem;
 }
 
-.btn-presale:hover {
+.btn-presale.btn-christmas {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #3CB371 100%);
+    color: var(--text-light);
+    box-shadow:
+        0 8px 25px rgba(46, 139, 87, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.btn-presale.btn-christmas:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(46, 139, 87, 0.4);
+    box-shadow:
+        0 12px 35px rgba(46, 139, 87, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: var(--accent-color);
 }
 
 /* Calendar Section */
@@ -643,13 +687,11 @@ body {
     grid-template-columns: repeat(6, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
-    perspective: 1500px;
     max-width: 1200px;
     margin: 0 auto 2rem;
-    min-height: 200px;
     padding: 1rem;
     justify-items: center;
-    align-items: start;
+    align-items: center;
 }
 
 /* 3D Door Container */
@@ -659,13 +701,8 @@ body {
     perspective: 1000px;
     position: relative;
     min-height: 180px;
-    z-index: 1;
     width: 100%;
     max-width: 200px;
-}
-
-.door-container.flipped {
-    z-index: 10;
 }
 
 .door-flipper {
@@ -675,8 +712,9 @@ body {
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.6s ease-in-out;
     transform: rotateY(0deg);
+    transform-origin: center center;
 }
 
 .door-container.flipped .door-flipper {
@@ -686,6 +724,8 @@ body {
 .door-front,
 .door-back {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -696,6 +736,7 @@ body {
     justify-content: center;
     padding: 1.5rem;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
 /* Front of Door */
@@ -827,16 +868,12 @@ body {
     filter: brightness(1.1);
 }
 
-.door-container:hover .door-flipper {
-    transform: scale(1.02);
-}
-
 .door-container.flipped .door-flipper {
     transform: rotateY(180deg);
 }
 
-.door-container.flipped:hover .door-flipper {
-    transform: rotateY(180deg) scale(1.02);
+.door-container.flipped:hover {
+    filter: brightness(1.1);
 }
 
 /* Sparkle Effect on Hover */
@@ -877,6 +914,25 @@ body {
     padding: 5rem 0;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+}
+
+.why-hero-image {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.moon-car-image {
+    max-width: 600px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--accent-color);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
 }
 
 .why-grid {
@@ -942,6 +998,37 @@ body {
     padding: 5rem 0;
 }
 
+.tokenomics-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.neon-logo {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow:
+        0 0 40px rgba(255, 215, 0, 0.6),
+        0 0 80px rgba(230, 57, 70, 0.4),
+        0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    0% {
+        box-shadow:
+            0 0 40px rgba(255, 215, 0, 0.6),
+            0 0 80px rgba(230, 57, 70, 0.4),
+            0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow:
+            0 0 60px rgba(255, 215, 0, 0.8),
+            0 0 100px rgba(230, 57, 70, 0.6),
+            0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+}
+
 .tokenomics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -994,8 +1081,24 @@ body {
 }
 
 .charity-content {
-    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.charity-image {
+    position: sticky;
+    top: 100px;
+}
+
+.charity-mascot {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--accent-color);
 }
 
 .charity-text h3 {
@@ -1435,6 +1538,15 @@ body {
     .charity-item {
         flex-direction: column;
         text-align: center;
+    }
+
+    .charity-content {
+        grid-template-columns: 1fr;
+    }
+
+    .charity-image {
+        position: relative;
+        top: 0;
     }
 }
 
