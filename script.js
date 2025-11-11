@@ -76,6 +76,9 @@ const prizes = [
 // Get the advent calendar grid element
 const adventGrid = document.getElementById('advent-calendar');
 
+// Modal elements (will be initialized when DOM loads)
+let modal, modalBody, closeBtn;
+
 // Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
     console.log('Generating calendar...', prizes.length, 'prizes');
@@ -142,7 +145,6 @@ function openDoor(prize) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded!');
 
-    adventGrid = document.getElementById('adventGrid');
     modal = document.getElementById('calendarModal');
     modalBody = document.getElementById('modalBody');
     closeBtn = document.querySelector('.close');
@@ -157,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (adventGrid) {
         generateAdventCalendar();
     } else {
-        console.error('Advent grid not found! ID: adventGrid');
+        console.error('Advent grid not found! ID: advent-calendar');
     }
 
     if (closeBtn && modal) {
