@@ -73,7 +73,9 @@ const prizes = [
     { day: 25, icon: '💰', title: '4 SOLANA', value: '4 SOL', description: 'MERRY CHRISTMAS! The ultimate crypto prize - 4 SOLANA tokens! Thank you for being part of the Santa Paws family!' }
 ];
 
-// Check if we should use 3D calendar
+// Get the advent calendar grid element
+const adventGrid = document.getElementById('advent-calendar');
+
 // Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
     console.log('Generating calendar...', prizes.length, 'prizes');
