@@ -1325,19 +1325,59 @@ body {
 
 .pdf-viewer-container {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 20px;
     box-shadow: var(--shadow);
     border: 3px solid var(--accent-color);
+    text-align: center;
 }
 
-.pdf-viewer {
-    width: 100%;
-    height: 800px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    margin-bottom: 1.5rem;
+.pdf-preview {
+    margin-bottom: 2rem;
+}
+
+.pdf-icon {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.whitepaper-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+}
+
+.stat-text {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
 .pdf-download {
@@ -1345,8 +1385,8 @@ body {
 }
 
 .btn-whitepaper {
-    font-size: 1.2rem;
-    padding: 1rem 3rem;
+    font-size: 1.3rem;
+    padding: 1.2rem 3rem;
 }
 
 /* Roadmap Section */
@@ -1767,11 +1807,12 @@ body {
     }
 
     .pdf-viewer-container {
-        padding: 1rem;
+        padding: 2rem;
     }
 
-    .pdf-viewer {
-        height: 600px;
+    .whitepaper-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .twitter-container {
@@ -1848,16 +1889,30 @@ body {
     }
 
     .pdf-viewer-container {
-        padding: 0.5rem;
+        padding: 1.5rem;
     }
 
-    .pdf-viewer {
-        height: 500px;
+    .pdf-icon {
+        font-size: 4rem;
+    }
+
+    .whitepaper-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 1rem;
+    }
+
+    .stat-icon {
+        font-size: 2rem;
     }
 
     .btn-whitepaper {
-        font-size: 1rem;
-        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+        width: 100%;
     }
 
     .twitter-container {
