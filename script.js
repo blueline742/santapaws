@@ -459,10 +459,3 @@ console.log('%c🎅 SANTA PAWS 🐾', 'font-size: 50px; color: #FFD700; text-sha
 console.log('%cThe Most Festive Meme Coin on Solana!', 'font-size: 20px; color: #2E8B57;');
 console.log('%cJoin us: https://t.me/Santapawssolofficial', 'font-size: 16px; color: #fff;');
 console.log('%cTip: Try the Konami Code! ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️ B A', 'font-size: 14px; color: #FFD700;');
-
-// ============================================
-// Image-Based Calendar Functionality
-// ============================================
-
-// Initialize image-based calendar doors
-function initImageCalendar() {
