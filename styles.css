@@ -682,6 +682,69 @@ body {
     margin-bottom: 3rem;
 }
 
+.calendar-description {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.calendar-promo-title {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.calendar-promo-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1rem;
+}
+
+.calendar-promo-text:last-child {
+    margin-bottom: 0;
+}
+
+.telegram-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.telegram-link:hover {
+    color: #FFF;
+    text-shadow: 0 0 10px var(--accent-color);
+    border-bottom-color: #FFF;
+}
+
+.calendar-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 1rem;
+}
+
+.calendar-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--accent-color);
+    animation: float 3s ease-in-out infinite;
+}
+
 .advent-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -1154,6 +1217,44 @@ body {
     line-height: 1.6;
 }
 
+/* White Paper Section */
+.whitepaper {
+    padding: 5rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.whitepaper-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pdf-viewer-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 3px solid var(--accent-color);
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 800px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    margin-bottom: 1.5rem;
+}
+
+.pdf-download {
+    text-align: center;
+}
+
+.btn-whitepaper {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+}
+
 /* Roadmap Section */
 .roadmap {
     padding: 5rem 0;
@@ -1496,6 +1597,28 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .calendar-description {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .calendar-promo-title {
+        font-size: 2rem;
+    }
+
+    .calendar-promo-text {
+        font-size: 1.1rem;
+    }
+
+    .calendar-image-container {
+        padding: 0.5rem;
+    }
+
+    .calendar-image {
+        border-radius: 15px;
+        border-width: 2px;
+    }
+
     .advent-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
@@ -1548,6 +1671,14 @@ body {
         position: relative;
         top: 0;
     }
+
+    .pdf-viewer-container {
+        padding: 1rem;
+    }
+
+    .pdf-viewer {
+        height: 600px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1580,11 +1711,47 @@ body {
         text-align: center;
     }
 
+    .calendar-description {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .calendar-promo-title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    .calendar-promo-text {
+        font-size: 1rem;
+    }
+
+    .calendar-image-container {
+        padding: 0.25rem;
+    }
+
+    .calendar-image {
+        border-radius: 10px;
+        border-width: 2px;
+    }
+
     .advent-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.8rem;
         padding: 0.5rem;
         max-width: 100%;
+    }
+
+    .pdf-viewer-container {
+        padding: 0.5rem;
+    }
+
+    .pdf-viewer {
+        height: 500px;
+    }
+
+    .btn-whitepaper {
+        font-size: 1rem;
+        padding: 0.8rem 2rem;
     }
 
     .door-container {
