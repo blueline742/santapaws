@@ -17,8 +17,21 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 });
 
 // Token Launch Countdown Timer
-// Set launch date to Nov 13, 2025 at 8:00 PM UK time
-const launchDate = new Date('2025-11-13T20:00:00Z'); // 8 PM GMT/UK time
+// Set launch to today at 8:00 PM UK time
+function getLaunchDate() {
+    const now = new Date();
+    const launch = new Date();
+    launch.setHours(20, 0, 0, 0); // 8:00 PM today
+
+    // If it's already past 8 PM, set to tomorrow
+    if (now.getTime() > launch.getTime()) {
+        launch.setDate(launch.getDate() + 1);
+    }
+
+    return launch;
+}
+
+const launchDate = getLaunchDate();
 
 function updateLaunchCountdown() {
     const now = new Date().getTime();
@@ -41,7 +54,7 @@ function updateLaunchCountdown() {
         return;
     }
 
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(distance / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
