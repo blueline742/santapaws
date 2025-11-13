@@ -16,31 +16,45 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Countdown Timer - Disabled (Presale is live)
-// const countdownDate = new Date('November 7, 2025 00:00:00').getTime();
+// Token Launch Countdown Timer
+const launchDate = new Date();
+launchDate.setHours(20, 0, 0, 0); // 8:00 PM today (UK time)
 
-// function updateCountdown() {
-//     const now = new Date().getTime();
-//     const distance = countdownDate - now;
+// If current time is past 8 PM today, set to tomorrow
+const now = new Date();
+if (now.getHours() >= 20) {
+    launchDate.setDate(launchDate.getDate() + 1);
+}
 
-//     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+function updateLaunchCountdown() {
+    const now = new Date().getTime();
+    const distance = launchDate.getTime() - now;
 
-//     document.getElementById('days').innerText = days.toString().padStart(2, '0');
-//     document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-//     document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-//     document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-//     if (distance < 0) {
-//         clearInterval(countdownInterval);
-//         document.getElementById('countdown').innerHTML = '<h2 class="live-text">PRESALE IS LIVE!</h2>';
-//     }
-// }
+    const hoursEl = document.getElementById('launch-hours');
+    const minutesEl = document.getElementById('launch-minutes');
+    const secondsEl = document.getElementById('launch-seconds');
 
-// const countdownInterval = setInterval(updateCountdown, 1000);
-// updateCountdown();
+    if (hoursEl && minutesEl && secondsEl) {
+        hoursEl.innerText = hours.toString().padStart(2, '0');
+        minutesEl.innerText = minutes.toString().padStart(2, '0');
+        secondsEl.innerText = seconds.toString().padStart(2, '0');
+    }
+
+    if (distance < 0) {
+        clearInterval(launchCountdownInterval);
+        const countdownContainer = document.querySelector('.launch-countdown');
+        if (countdownContainer) {
+            countdownContainer.innerHTML = '<h2 style="font-family: \'Mountains of Christmas\', cursive; font-size: 2.5rem; color: var(--accent-color); text-align: center; animation: glow 2s ease-in-out infinite alternate;">🚀 TOKEN IS NOW LIVE! 🚀</h2>';
+        }
+    }
+}
+
+const launchCountdownInterval = setInterval(updateLaunchCountdown, 1000);
+updateLaunchCountdown();
 
 // Advent Calendar Generation
 let adventGrid, modal, modalBody, closeBtn;

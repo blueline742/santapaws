@@ -599,6 +599,21 @@ body {
     font-weight: 600;
 }
 
+.launch-countdown {
+    background: linear-gradient(135deg, rgba(230, 57, 70, 0.15), rgba(255, 215, 0, 0.15));
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    border: 2px solid var(--primary-color);
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .presale-info {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1278,13 +1293,24 @@ body {
 }
 
 .twitter-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
     border-radius: 20px;
     border: 3px solid var(--accent-color);
     box-shadow: var(--shadow);
+    min-height: 700px;
+}
+
+.social-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.social-cta .btn {
+    font-size: 1.3rem;
+    padding: 1.2rem 3rem;
 }
 
 /* White Paper Section */
@@ -1749,7 +1775,15 @@ body {
     }
 
     .twitter-container {
-        padding: 1rem;
+        padding: 0.5rem;
+    }
+
+    .launch-countdown {
+        padding: 1.5rem;
+    }
+
+    .countdown-timer .time-box {
+        min-width: 90px;
     }
 }
 
@@ -1833,6 +1867,28 @@ body {
     .section-subtitle {
         font-size: 1rem;
         padding: 0 1rem;
+    }
+
+    .launch-countdown {
+        padding: 1rem;
+    }
+
+    .launch-countdown h4 {
+        font-size: 1.4rem !important;
+    }
+
+    .countdown-timer .time-box {
+        min-width: 80px;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .countdown-timer .time-value {
+        font-size: 1.8rem;
+    }
+
+    .social-cta .btn {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
     }
 
     .door-container {
