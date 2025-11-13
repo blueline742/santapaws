@@ -17,18 +17,29 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 });
 
 // Token Launch Countdown Timer
-const launchDate = new Date();
-launchDate.setHours(20, 0, 0, 0); // 8:00 PM today (UK time)
-
-// If current time is past 8 PM today, set to tomorrow
-const now = new Date();
-if (now.getHours() >= 20) {
-    launchDate.setDate(launchDate.getDate() + 1);
-}
+// Set launch date to Nov 13, 2025 at 8:00 PM UK time
+const launchDate = new Date('2025-11-13T20:00:00Z'); // 8 PM GMT/UK time
 
 function updateLaunchCountdown() {
     const now = new Date().getTime();
     const distance = launchDate.getTime() - now;
+
+    // If launch has passed, show live message
+    if (distance < 0) {
+        clearInterval(launchCountdownInterval);
+        const countdownContainer = document.querySelector('.launch-countdown');
+        if (countdownContainer) {
+            countdownContainer.innerHTML = `
+                <h2 style="font-family: 'Mountains of Christmas', cursive; font-size: 2.5rem; color: var(--accent-color); text-align: center; animation: glow 2s ease-in-out infinite alternate; margin-bottom: 1rem;">
+                    🚀 TOKEN IS NOW LIVE! 🚀
+                </h2>
+                <p style="text-align: center; color: var(--text-dark); font-size: 1.2rem; font-weight: 600;">
+                    Trade Now on Raydium!
+                </p>
+            `;
+        }
+        return;
+    }
 
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -42,14 +53,6 @@ function updateLaunchCountdown() {
         hoursEl.innerText = hours.toString().padStart(2, '0');
         minutesEl.innerText = minutes.toString().padStart(2, '0');
         secondsEl.innerText = seconds.toString().padStart(2, '0');
-    }
-
-    if (distance < 0) {
-        clearInterval(launchCountdownInterval);
-        const countdownContainer = document.querySelector('.launch-countdown');
-        if (countdownContainer) {
-            countdownContainer.innerHTML = '<h2 style="font-family: \'Mountains of Christmas\', cursive; font-size: 2.5rem; color: var(--accent-color); text-align: center; animation: glow 2s ease-in-out infinite alternate;">🚀 TOKEN IS NOW LIVE! 🚀</h2>';
-        }
     }
 }
 
