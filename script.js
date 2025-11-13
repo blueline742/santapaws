@@ -454,6 +454,61 @@ function activateEasterEgg() {
     }, 10000);
 }
 
+// Copy Contract Address Function
+function copyContractAddress() {
+    const contractAddress = document.getElementById('contractAddressHero').textContent;
+    const copyBtn = document.querySelector('.copy-icon-btn');
+
+    // Try modern clipboard API first
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(contractAddress)
+            .then(() => {
+                // Success feedback
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✅';
+
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Failed to copy:', err);
+                fallbackCopy(contractAddress, copyBtn);
+            });
+    } else {
+        // Fallback for older browsers
+        fallbackCopy(contractAddress, copyBtn);
+    }
+}
+
+// Fallback copy method for older browsers
+function fallbackCopy(text, button) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+
+    try {
+        document.execCommand('copy');
+        const originalText = button.innerHTML;
+        button.innerHTML = '✅';
+
+        setTimeout(() => {
+            button.innerHTML = originalText;
+        }, 2000);
+    } catch (err) {
+        console.error('Fallback copy failed:', err);
+        button.innerHTML = '❌';
+        setTimeout(() => {
+            button.innerHTML = '📋';
+        }, 2000);
+    }
+
+    document.body.removeChild(textArea);
+}
+
 // Console message for developers
 console.log('%c🎅 SANTA PAWS 🐾', 'font-size: 50px; color: #FFD700; text-shadow: 2px 2px 4px #E63946;');
 console.log('%cThe Most Festive Meme Coin on Solana!', 'font-size: 20px; color: #2E8B57;');
