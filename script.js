@@ -32,13 +32,17 @@ function getLaunchDate() {
 }
 
 const launchDate = getLaunchDate();
+console.log('Launch date set to:', launchDate.toString());
 
 function updateLaunchCountdown() {
     const now = new Date().getTime();
     const distance = launchDate.getTime() - now;
 
+    console.log('Countdown - Distance:', distance, 'ms');
+
     // If launch has passed, show live message
     if (distance < 0) {
+        console.log('Launch has passed, showing live message');
         clearInterval(launchCountdownInterval);
         const countdownContainer = document.querySelector('.launch-countdown');
         if (countdownContainer) {
@@ -58,14 +62,25 @@ function updateLaunchCountdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    console.log(`Countdown: ${hours}h ${minutes}m ${seconds}s`);
+
     const hoursEl = document.getElementById('launch-hours');
     const minutesEl = document.getElementById('launch-minutes');
     const secondsEl = document.getElementById('launch-seconds');
+
+    console.log('Elements found:', {
+        hoursEl: !!hoursEl,
+        minutesEl: !!minutesEl,
+        secondsEl: !!secondsEl
+    });
 
     if (hoursEl && minutesEl && secondsEl) {
         hoursEl.innerText = hours.toString().padStart(2, '0');
         minutesEl.innerText = minutes.toString().padStart(2, '0');
         secondsEl.innerText = seconds.toString().padStart(2, '0');
+        console.log('Updated countdown display');
+    } else {
+        console.error('Countdown elements not found!');
     }
 }
 
