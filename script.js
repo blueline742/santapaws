@@ -88,8 +88,6 @@ const launchCountdownInterval = setInterval(updateLaunchCountdown, 1000);
 updateLaunchCountdown();
 
 // Advent Calendar Generation
-let adventGrid, modal, modalBody, closeBtn;
-
 const prizes = [
     { day: 1, icon: '🎁', title: 'Amazon eGift Card', value: '$20', description: 'Start your Christmas journey with a $20 Amazon eGift Card! Perfect for treating yourself or getting started on your holiday shopping.' },
     { day: 2, icon: '🎮', title: 'Gaming Wallet', value: '$25', description: 'Steam, Xbox, or PlayStation Store credit! Choose your platform and get $25 to spend on your favorite games.' },
@@ -118,11 +116,8 @@ const prizes = [
     { day: 25, icon: '💰', title: '4 SOLANA', value: '4 SOL', description: 'MERRY CHRISTMAS! The ultimate crypto prize - 4 SOLANA tokens! Thank you for being part of the Santa Paws family!' }
 ];
 
-// Get the advent calendar grid element
-const adventGrid = document.getElementById('advent-calendar');
-
-// Modal elements (will be initialized when DOM loads)
-let modal, modalBody, closeBtn;
+// Modal and calendar elements (will be initialized when DOM loads)
+let adventGrid, modal, modalBody, closeBtn;
 
 // Generate advent calendar doors with 3D flip effect
 function generateAdventCalendar() {
