@@ -276,7 +276,23 @@ body {
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
 }
 
+.countdown-container.presale-success {
+    background: linear-gradient(135deg, rgba(46, 139, 87, 0.3), rgba(255, 215, 0, 0.3));
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
 .live-badge {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    text-align: center;
+    animation: glow 2s ease-in-out infinite alternate;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.success-badge {
     font-family: 'Mountains of Christmas', cursive;
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -553,6 +569,33 @@ body {
 .presale-date {
     font-size: 1.1rem;
     color: var(--primary-color);
+    font-weight: 600;
+}
+
+.presale-date.presale-ended {
+    color: var(--accent-color);
+}
+
+.presale-success-banner {
+    background: linear-gradient(135deg, rgba(46, 139, 87, 0.2), rgba(255, 215, 0, 0.2));
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 2px solid var(--accent-color);
+}
+
+.presale-success-banner h4 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.presale-success-banner p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0;
     font-weight: 600;
 }
 
@@ -1217,11 +1260,36 @@ body {
     line-height: 1.6;
 }
 
-/* White Paper Section */
-.whitepaper {
+/* Social Feed Section */
+.social-feed {
     padding: 5rem 0;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.twitter-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid var(--accent-color);
+    box-shadow: var(--shadow);
+}
+
+/* White Paper Section */
+.whitepaper {
+    padding: 5rem 0;
 }
 
 .whitepaper-content {
@@ -1679,6 +1747,10 @@ body {
     .pdf-viewer {
         height: 600px;
     }
+
+    .twitter-container {
+        padding: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1752,6 +1824,15 @@ body {
     .btn-whitepaper {
         font-size: 1rem;
         padding: 0.8rem 2rem;
+    }
+
+    .twitter-container {
+        padding: 0.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
 
     .door-container {
