@@ -16,76 +16,8 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Token Launch Countdown Timer
-// Set launch to today at 8:00 PM UK time
-function getLaunchDate() {
-    const now = new Date();
-    const launch = new Date();
-    launch.setHours(20, 0, 0, 0); // 8:00 PM today
-
-    // If it's already past 8 PM, set to tomorrow
-    if (now.getTime() > launch.getTime()) {
-        launch.setDate(launch.getDate() + 1);
-    }
-
-    return launch;
-}
-
-const launchDate = getLaunchDate();
-console.log('Launch date set to:', launchDate.toString());
-
-function updateLaunchCountdown() {
-    const now = new Date().getTime();
-    const distance = launchDate.getTime() - now;
-
-    console.log('Countdown - Distance:', distance, 'ms');
-
-    // If launch has passed, show live message
-    if (distance < 0) {
-        console.log('Launch has passed, showing live message');
-        clearInterval(launchCountdownInterval);
-        const countdownContainer = document.querySelector('.launch-countdown');
-        if (countdownContainer) {
-            countdownContainer.innerHTML = `
-                <h2 style="font-family: 'Mountains of Christmas', cursive; font-size: 2.5rem; color: var(--accent-color); text-align: center; animation: glow 2s ease-in-out infinite alternate; margin-bottom: 1rem;">
-                    🚀 TOKEN IS NOW LIVE! 🚀
-                </h2>
-                <p style="text-align: center; color: var(--text-dark); font-size: 1.2rem; font-weight: 600;">
-                    Trade Now on Raydium!
-                </p>
-            `;
-        }
-        return;
-    }
-
-    const hours = Math.floor(distance / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    console.log(`Countdown: ${hours}h ${minutes}m ${seconds}s`);
-
-    const hoursEl = document.getElementById('launch-hours');
-    const minutesEl = document.getElementById('launch-minutes');
-    const secondsEl = document.getElementById('launch-seconds');
-
-    console.log('Elements found:', {
-        hoursEl: !!hoursEl,
-        minutesEl: !!minutesEl,
-        secondsEl: !!secondsEl
-    });
-
-    if (hoursEl && minutesEl && secondsEl) {
-        hoursEl.innerText = hours.toString().padStart(2, '0');
-        minutesEl.innerText = minutes.toString().padStart(2, '0');
-        secondsEl.innerText = seconds.toString().padStart(2, '0');
-        console.log('Updated countdown display');
-    } else {
-        console.error('Countdown elements not found!');
-    }
-}
-
-const launchCountdownInterval = setInterval(updateLaunchCountdown, 1000);
-updateLaunchCountdown();
+// Token has launched - countdown removed
+// Token is now live on Raydium!
 
 // Advent Calendar Generation
 const prizes = [
